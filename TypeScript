@@ -1,0 +1,14 @@
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+async function getUsers(
+  limit: number = 10
+): Promise<User[]> {
+  const res = await fetch(
+    `/api/users?limit=${limit}`
+  );
+  return res.json();
+}
