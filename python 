@@ -1,0 +1,11 @@
+import requests
+
+def get_users(limit=10):
+    url = f"https://api.example.com/users?limit={limit}"
+    res = requests.get(url)
+    res.raise_for_status()
+    return res.json()
+
+users = get_users(5)
+for u in users:
+    print(u["name"], u["email"])
