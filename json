@@ -1,0 +1,13 @@
+{
+  "user": {
+    "id": 42,
+    "name": "Jane Doe",
+    "email": "jane@example.com",
+    "active": true,
+    "roles": ["admin", "editor"],
+    "meta": {
+      "createdAt": "2024-01-15T08:00:00Z",
+      "loginCount": 128
+    }
+  }
+}
