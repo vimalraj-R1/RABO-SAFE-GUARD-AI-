@@ -1,0 +1,12 @@
+SELECT
+  u.id,
+  u.name,
+  u.email,
+  COUNT(o.id) AS total_orders
+FROM users u
+LEFT JOIN orders o
+  ON u.id = o.user_id
+WHERE u.active = 1
+GROUP BY u.id
+ORDER BY total_orders DESC
+LIMIT 5;
