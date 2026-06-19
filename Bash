@@ -1,0 +1,16 @@
+APP="my-app"
+PORT=3000
+
+echo "Deploying $APP..."
+git pull origin main
+npm install --production
+pm2 restart $APP
+
+# Wait and check health
+sleep 3
+if curl -sf "http://localhost:$PORT/health"; then
+  echo "✅ Deploy successful"
+else
+  echo "❌ Health check failed" >&2
+  exit 1
+fi
