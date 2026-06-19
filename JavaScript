@@ -1,0 +1,13 @@
+async function getUsers(limit = 10) {
+  const res = await fetch(
+    `https://api.example.com/users?limit=${limit}`
+  );
+  if (!res.ok) throw new Error("Request failed");
+  return res.json();
+}
+
+getUsers(5).then((users) => {
+  users.forEach((u) =>
+    console.log(u.name, u.email)
+  );
+});
